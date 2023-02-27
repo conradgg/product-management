@@ -1,9 +1,10 @@
 package main
 
-import "fyne.io/fyne/v2/app"
+import (
+	"product-management/ui"
+)
 
 func main() {
-	a := app.New()
-	w := a.NewWindow("Product Management")
-	w.ShowAndRun()
+	LoadConfig()
+	ui.Authorization()
 }
