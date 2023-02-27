@@ -6,5 +6,5 @@ import (
 
 func main() {
 	LoadConfig()
-	ui.Authorization()
+	ui.UI()
 }
