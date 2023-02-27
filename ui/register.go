@@ -12,8 +12,9 @@ import (
 
 func Register() {
 	a := app.New()
-	regWindow := a.NewWindow("Product Management")
-	regWindow.Resize(fyne.NewSize(400, 500))
+	window := a.NewWindow("")
+	window.Resize(fyne.NewSize(400, 350))
+	window.CenterOnScreen()
 	label := widget.NewLabel("Register")
 	label.TextStyle = fyne.TextStyle{Bold: true}
 	username := widget.NewEntry()
@@ -49,7 +50,7 @@ func Register() {
 			Authorization()
 		}
 	})
-	regWindow.SetContent(container.NewVBox(
+	window.SetContent(container.NewVBox(
 		label,
 		username,
 		firstname,
@@ -58,5 +59,5 @@ func Register() {
 		password1,
 		submit,
 	))
-	regWindow.Show()
+	window.Show()
 }

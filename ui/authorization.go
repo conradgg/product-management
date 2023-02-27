@@ -12,9 +12,10 @@ import (
 )
 
 func Authorization() {
-	a := app.New()
+	a := app.NewWithID("product-management")
 	window := a.NewWindow("Product Management")
-	window.Resize(fyne.NewSize(400, 500))
+	window.Resize(fyne.NewSize(400, 250))
+	window.CenterOnScreen()
 	label := widget.NewLabel("Authorization")
 	label.TextStyle = fyne.TextStyle{Bold: true}
 	username := widget.NewEntry()
@@ -39,8 +40,8 @@ func Authorization() {
 		}
 	})
 	reg := widget.NewButton("Create account?", func() {
-
 		Register()
+		window.Hide()
 	})
 	window.SetContent(container.NewVBox(
 		label,
