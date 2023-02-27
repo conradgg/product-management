@@ -5,12 +5,14 @@ import (
 	"strings"
 
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
 func Register() {
-	regWindow := UI().NewWindow("Register")
+	a := app.New()
+	regWindow := a.NewWindow("Product Management")
 	regWindow.Resize(fyne.NewSize(400, 500))
 	label := widget.NewLabel("Register")
 	label.TextStyle = fyne.TextStyle{Bold: true}

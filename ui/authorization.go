@@ -6,13 +6,15 @@ import (
 	"strings"
 
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
 func Authorization() {
-	authWindow := UI().NewWindow("Authorization")
-	authWindow.Resize(fyne.NewSize(400, 500))
+	a := app.New()
+	window := a.NewWindow("Product Management")
+	window.Resize(fyne.NewSize(400, 500))
 	label := widget.NewLabel("Authorization")
 	label.TextStyle = fyne.TextStyle{Bold: true}
 	username := widget.NewEntry()
@@ -37,16 +39,16 @@ func Authorization() {
 		}
 	})
 	reg := widget.NewButton("Create account?", func() {
-		w := UI().NewWindow("sdsk")
-		w.Show()
+
+		Register()
 	})
-	authWindow.SetContent(container.NewVBox(
+	window.SetContent(container.NewVBox(
 		label,
 		username,
 		password,
 		submit,
 		reg,
 	))
-	authWindow.Show()
-	UI().Run()
+	window.Show()
+	a.Run()
 }
